@@ -1,0 +1,29 @@
+import java.util.Random;
+import java.util.Scanner;
+
+public class juegoDeAdivinanza{
+    public static void main(String[] args) {
+        Scanner lector = new Scanner(System.in);
+        int numeroGenerado = new Random().nextInt(100);
+        int intentos = 0;
+
+        while (intentos < 5) {
+            System.out.println("Introduce un número entre 0 y 100: ");
+            int numeroDeUsuario = lector.nextInt();
+            intentos++;
+
+            if (numeroDeUsuario == numeroGenerado) {
+                System.out.println("Felicidades, adivinaste el número =) en " + intentos + " intentos!");
+                break;
+            } else if (numeroDeUsuario < numeroGenerado) {
+                System.out.println("El número que escribiste es mayor al número generado. =(");
+            } else {
+                System.out.println(("El número que escribiste es menor al número generado. =("));
+            }
+        }
+
+        if (intentos == 5) {
+            System.out.println("Lo sentimos :(, no lograste adivinar el número en 5 intentos. El número era " + numeroGenerado);
+        }
+}
+}
